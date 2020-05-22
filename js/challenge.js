@@ -1,0 +1,145 @@
+document.addEventListener("DOMContentLoaded", () => {
+
+    // gets counter element
+    let counter = document.getElementById("counter")
+
+    // increments the counter once per second
+    let count = setInterval(function() {
+        counter.innerText++;
+    }, 1000);
+
+    // get minus element
+    let minus = document.getElementById("minus");
+    // set minus button to decrement the counter upon click event
+    minus.addEventListener("click", function() {
+        counter.innerText--;
+    });
+
+    // get plus element
+    let plus = document.getElementById("plus");
+    // set plus button to increment the counter upon click event
+    plus.addEventListener("click", function() {
+        counter.innerText++;
+    });
+
+    // get heart button
+    let heart = document.getElementById("heart");
+    // add listen event for clicking heart button
+    heart.addEventListener("click", function() {
+       let likedNumber = counter.innerText;
+       let li = document.createElement("li");
+       li.innerText = `${likedNumber} is liked`;
+       console.log(li);
+       likes[0].appendChild(li);
+    });
+
+    // get likes ul element
+    let likes = document.getElementsByClassName("likes");
+
+    // get pause button
+    let pause = document.getElementById("pause");
+    // add listen event for clicking pause button
+    pause.addEventListener("click", function() {
+        if (pause.innerText === "pause") {
+            clearInterval(count);
+            pause.innerText = "resume";
+
+            minus.disabled = true;
+            plus.disabled = true;
+            heart.disabled = true;
+            submit.disabled = true;
+        } else {
+            count = setInterval(function() {
+                counter.innerText++;
+                }, 1000);
+            pause.innerText = "pause";
+            minus.disabled = false;
+            plus.disabled = false;
+            heart.disabled = false;
+        }
+    });
+
+    // get comment input field
+    let comment = document.getElementById("comment-input");
+    //get submit button
+    let submit = document.getElementById("submit");
+    // get comments div
+    let commentsArea = document.getElementById("list");
+
+    // add listen event for comment submit button
+    submit.addEventListener("click", function(e) {
+        e.preventDefault();
+        let pTag = document.createElement("P");
+        console.log(comment.value);
+        pTag.innerText = comment.value;
+        commentsArea.appendChild(pTag);
+        comment.value = "";
+    })
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const minusButton = document.getElementById("minus");
+
+// function timer() {
+//     let n = 1
+//     let setTiming = setInterval(function() {
+//         counter.innerHTML = n;
+//         n++;
+//     }, [1000]);
+
+//     minusButton.addEventListener("click", function(){
+//         n = counter.innerHTML = parseInt(counter.innerHTML) - 1;
+//         clearInterval(setTiming);
+//         setTiming
+//     });
+// }
+
+// timer(); 
