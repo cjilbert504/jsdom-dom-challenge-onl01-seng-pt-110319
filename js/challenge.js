@@ -24,14 +24,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // get heart button
     let heart = document.getElementById("heart");
-    // add listen event for clicking heart button
+    let arr = [];
+    let clickCount = 0;
+    //add listen event for clicking heart button
     heart.addEventListener("click", function() {
-       let likedNumber = counter.innerText;
-       let li = document.createElement("li");
-       li.innerText = `${likedNumber} is liked`;
-       console.log(li);
-       likes[0].appendChild(li);
+        let li = document.createElement("li");
+        let likedNumber = counter.innerText;
+        if (arr.includes(likedNumber)) {
+            clickCount+=1;
+            li.innerText = `${likedNumber} is liked ${clickCount} times`;
+        } else {
+            arr.push(likedNumber);
+            clickCount = 1;
+            li.innerText = `${likedNumber} is liked ${clickCount} time`;
+        }
+        // console.log(clickCount);
+        likes[0].appendChild(li);
     });
+    
 
     // get likes ul element
     let likes = document.getElementsByClassName("likes");
